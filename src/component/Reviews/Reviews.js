@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Product from '../../fakeData/Product.json'
 
 const Reviews = () => {
 
