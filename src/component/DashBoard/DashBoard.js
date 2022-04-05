@@ -1,76 +1,30 @@
-import { data } from 'autoprefixer';
+import { } from 'autoprefixer';
 import React from 'react';
-import { Area, AreaChart, CartesianGrid, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
+import { Area, AreaChart, CartesianGrid, Pie, PieChart, Tooltip, XAxis, YAxis } from 'recharts';
 
 const DashBoard = () => {
 
     const data = [
         {
-            name: 'Page A',
-            uv: 4000,
-            pv: 2400,
-            amt: 2400,
+            month: "Mar", investment: 100000, sell: 241, revenue: 10401
         },
         {
-            name: 'Page B',
-            uv: 3000,
-            pv: 1398,
-            amt: 2210,
+            month: "Apr", investment: 200000, sell: 423, revenue: 24500
         },
         {
-            name: 'Page C',
-            uv: 2000,
-            pv: 9800,
-            amt: 2290,
+            month: "May", investment: 500000, sell: 726, revenue: 67010
         },
         {
-            name: 'Page D',
-            uv: 2780,
-            pv: 3908,
-            amt: 2000,
+            month: "Jun", investment: 500000, sell: 529, revenue: 40405
         },
         {
-            name: 'Page E',
-            uv: 1890,
-            pv: 4800,
-            amt: 2181,
+            month: "Jul", investment: 600000, sell: 601, revenue: 50900
         },
         {
-            name: 'Page F',
-            uv: 2390,
-            pv: 3800,
-            amt: 2500,
-        },
-        {
-            name: 'Page G',
-            uv: 3490,
-            pv: 4300,
-            amt: 2100,
-        },
+            month: "Aug", investment: 700000, sell: 670, revenue: 61000
+        }
     ];
 
-
-
-
-    const data01 = [
-        { name: 'Group A', value: 400 },
-        { name: 'Group B', value: 300 },
-        { name: 'Group C', value: 300 },
-        { name: 'Group D', value: 200 },
-    ];
-    const data02 = [
-        { name: 'A1', value: 100 },
-        { name: 'A2', value: 300 },
-        { name: 'B1', value: 100 },
-        { name: 'B2', value: 80 },
-        { name: 'B3', value: 40 },
-        { name: 'B4', value: 30 },
-        { name: 'B5', value: 50 },
-        { name: 'C1', value: 100 },
-        { name: 'C2', value: 200 },
-        { name: 'D1', value: 150 },
-        { name: 'D2', value: 50 },
-    ];
     return (
         <div>
             <AreaChart width={730} height={250} data={data}
@@ -85,18 +39,18 @@ const DashBoard = () => {
                         <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
                     </linearGradient>
                 </defs>
-                <XAxis dataKey="name" />
+                <XAxis dataKey="month" />
                 <YAxis />
                 <CartesianGrid strokeDasharray="3 3" />
                 <Tooltip />
-                <Area type="monotone" dataKey="uv" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-                <Area type="monotone" dataKey="pv" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
+                <Area type="sell" dataKey="investment" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
+                <Area type="sell" dataKey="revenue" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
             </AreaChart>
 
-
             <PieChart width={730} height={250}>
-                <Pie data={data01} dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={50} fill="#8884d8" />
-                <Pie data={data02} dataKey="value" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#82ca9d" label />
+                <Pie data={data} dataKey="sell" nameKey="name" cx="50%" cy="50%" outerRadius={50} fill="#8884d8" />
+                <Pie data={data} dataKey="investment" nameKey="name" cx="50%" cy="50%" innerRadius={60} outerRadius={80} fill="#82ca9d" label />
+                <Pie data={data} dataKey="revenue" nameKey="name" cx="50%" cy="50%" innerRadius={70} outerRadius={90} fill="#C00EFA" label />
             </PieChart>
         </div>
     );
